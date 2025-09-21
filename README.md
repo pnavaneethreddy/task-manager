@@ -19,23 +19,3 @@ A simple **Task Manager Web App** built with **HTML, CSS, and JavaScript** to ad
 git clone https://github.com/pnavaneethreddy/task-manager.git
 cd task-manager
 open tasks.html   # or just double-click it
-
-
-
-##🛠 Tech Stack
-
-HTML
-
-CSS
-
-JavaScript
-
-Deployed on Vercel
-
-💡 Future Enhancements
-
-Save tasks in localStorage
-
-Add due dates & priorities
-
-Task filtering (All / Active / Completed)
