@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task Manager — Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Task Manager</div>
+    <div class="header-right">
+      <div id="user-greeting"></div>
+      <button id="dark-toggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+      <button id="logout-btn" class="danger">Logout</button>
+    </div>
+  </header>
+
+  <main class="page container-wide">
+    <!-- left: form & controls, right: progress & stats (responsive stacks) -->
+    <section class="panel panel-form">
+      <h3>Add New Task</h3>
+      <input id="task-title" type="text" placeholder="Task title" />
+      <div class="row">
+        <input id="task-due" type="date" />
+        <select id="task-priority">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+      <textarea id="task-desc" placeholder="Optional description (notes)"></textarea>
+      <div class="row">
+        <button id="add-task" class="primary">Add Task</button>
+        <button id="clear-form" class="muted">Clear</button>
+      </div>
+
+      <hr />
+
+      <h3>Filters & Search</h3>
+      <div class="row wrap">
+        <input id="search" type="search" placeholder="Search tasks..." />
+        <select id="filter-priority">
+          <option value="all">All priorities</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <select id="filter-status">
+          <option value="all">All status</option>
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
+        <select id="sort-by">
+          <option value="created-desc">Newest</option>
+          <option value="created-asc">Oldest</option>
+          <option value="due-asc">Due soon</option>
+          <option value="due-desc">Due latest</option>
+          <option value="priority-desc">Priority high→low</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="panel panel-list">
+      <div class="panel-top">
+        <h3>Your Tasks</h3>
+        <div class="small-controls">
+          <span id="task-count">0 tasks</span>
+        </div>
+      </div>
+
+      <ul id="task-list" class="task-list" aria-live="polite"></ul>
+
+      <div class="progress-panel">
+        <div class="progress-meta">
+          <div><strong id="completed-count">0</strong> completed</div>
+          <div><strong id="total-count">0</strong> total</div>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-bar" style="width:0%"></div>
+        </div>
+        <div class="progress-percent" id="progress-percent">0%</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

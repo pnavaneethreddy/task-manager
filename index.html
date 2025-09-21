@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task Manager — Login / Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Task Manager</div>
+  </header>
+
+  <main class="auth-page">
+    <div class="auth-card">
+      <h2 id="auth-title">Login</h2>
+      <div id="auth-message" class="info" aria-live="polite"></div>
+
+      <input id="auth-name" type="text" placeholder="Full name (for register)" class="hidden" />
+      <input id="auth-email" type="email" placeholder="Email" autocomplete="username" />
+      <div class="pw-row">
+        <input id="auth-password" type="password" placeholder="Password" autocomplete="current-password" />
+        <button id="toggle-show-pw" class="icon-btn" title="Show / hide password">👁️</button>
+      </div>
+      <input id="auth-confirm" type="password" placeholder="Confirm password (register)" class="hidden" autocomplete="new-password" />
+
+      <div class="auth-actions">
+        <button id="auth-action" class="primary">Login</button>
+        <button id="auth-switch" class="link">Don't have an account? Register</button>
+      </div>
+
+      <p class="note">Password must be at least 6 characters.</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

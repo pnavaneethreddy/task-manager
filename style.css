@@ -1,0 +1,115 @@
+/* ========== Base ========== */
+* { box-sizing: border-box; }
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --success: #16a34a;
+  --danger: #ef4444;
+}
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  margin: 0;
+  background: var(--bg);
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Topbar */
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 20px;
+  background: linear-gradient(90deg,#0ea5e9,#2563eb);
+  color:white;
+}
+.brand { font-weight:700; font-size:1.15rem; }
+.header-right { display:flex; gap:8px; align-items:center; }
+
+/* Containers */
+.container-wide{
+  max-width:1100px;
+  margin:18px auto;
+  display:grid;
+  grid-template-columns: 360px 1fr;
+  gap:18px;
+  padding: 0 16px 40px 16px;
+}
+
+/* Panels */
+.panel {
+  background: var(--card);
+  border-radius:10px;
+  padding:14px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+}
+
+/* Auth page */
+.auth-page { min-height:78vh; display:flex; justify-content:center; align-items:center; }
+.auth-card { width:100%; max-width:420px; padding:22px; }
+
+/* Inputs */
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], textarea, select {
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #e6eef6;
+  background:white;
+  margin:8px 0;
+  font-size:0.95rem;
+}
+textarea { min-height:80px; resize:vertical; }
+
+/* Buttons */
+button { cursor:pointer; border:0; border-radius:8px; padding:8px 12px; font-weight:600; }
+.primary { background:var(--accent); color:white; }
+.primary:hover { opacity:0.95; }
+.muted { background:#f1f5f9; color:#0f172a; }
+.danger { background:var(--danger); color:white; }
+
+/* layout bits */
+.row { display:flex; gap:10px; align-items:center; }
+.wrap { flex-wrap:wrap; }
+.pw-row { display:flex; gap:8px; align-items:center; }
+.icon-btn { background:transparent; padding:6px 8px; border-radius:8px; }
+
+/* Task list */
+.panel-list { display:flex; flex-direction:column; gap:12px; }
+.panel-top { display:flex; justify-content:space-between; align-items:center; }
+.task-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+.task-item {
+  display:flex; justify-content:space-between; align-items:flex-start;
+  padding:12px; border-radius:8px; background:#fbfdff; border-left:6px solid var(--accent);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.task-item:hover { transform: translateY(-4px); box-shadow:0 8px 20px rgba(2,6,23,0.06); }
+.task-main { flex:1; display:flex; flex-direction:column; gap:6px; }
+.task-title { font-weight:700; }
+.task-meta { font-size:0.9rem; color:var(--muted); display:flex; gap:10px; flex-wrap:wrap; }
+.task-actions { display:flex; gap:8px; align-items:center; margin-left:12px; }
+
+/* priority colors */
+.border-high { border-left-color:#ef4444; } /* red */
+.border-medium { border-left-color:#f59e0b; } /* orange */
+.border-low { border-left-color:#10b981; } /* green */
+.tag { padding:4px 8px; border-radius:999px; font-size:0.85rem; color:white; font-weight:600; }
+
+/* progress */
+.progress-panel { display:flex; align-items:center; gap:12px; margin-top:8px; flex-direction:column; padding-top:8px; }
+.progress-meta { display:flex; gap:18px; width:100%; justify-content:space-between; font-weight:600; color:var(--muted); }
+.progress-track { width:100%; height:12px; background:#eef2ff; border-radius:999px; overflow:hidden; }
+#progress-bar { height:100%; background:linear-gradient(90deg,#34d399,#10b981); width:0%; transition:width .32s ease; }
+.progress-percent { font-weight:700; color:var(--muted); }
+
+/* small screens */
+@media (max-width:960px) {
+  .container-wide { grid-template-columns: 1fr; padding:12px; }
+}
+
+/* dark mode */
+body.dark { background:#0b1220; color:#e6eef6; }
+body.dark .panel, body.dark .auth-card { background:#0f1724; box-shadow:none; border:1px solid rgba(255,255,255,0.03); }
+body.dark input, body.dark textarea, body.dark select { background:#0b1220; color:#dbeafe; border:1px solid rgba(255,255,255,0.04); }
